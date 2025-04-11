@@ -28,22 +28,24 @@ body {
   max-width: 55rem;
   min-height: 20em;
   border-radius: 1rem;
-  overflow: hidden;
 
   display: grid;
-  grid-template-columns: 1.2fr 2fr;
+  grid-template-columns: 40% 60%;
+
+  position: relative;
 }
 
 .img img {
   width: 100%;
   height: 100%;
+  border-radius: 1rem 0 0 1rem;
   object-fit: cover;
   object-position: left;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .content {
-  padding: 2.2em;
+  padding: 2.2em 2.2em 1em 2.2em;
 }
 
 .text {
@@ -61,7 +63,6 @@ body {
 }
 
 .footer {
-  /* position: relative; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -95,17 +96,23 @@ button {
 }
 
 .share {
-  position: relative;
+  z-index: 10;
+  align-items: center;
 }
 
 .share-button {
-  padding: 7px;
+  background-color: hsl(210, 46%, 95%);
+  padding: 0.6em;
   border: none;
   outline: none;
   cursor: pointer;
-  border-radius: 1.5em;
-  transition: all 0.25s ease;
-  background-color: hsl(210, 46%, 95%);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.share-button img {
+  width: 1em;
+  height: auto;
 }
 
 .share-button:hover,
@@ -118,17 +125,16 @@ button {
   padding: 1em 2em;
   border-radius: 1em;
 
+  gap: 1.3em;
+  width: max-content;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
 
   position: absolute;
-  top: 49%;
-  right: 22%;
-}
-
-.share-options * {
-  margin: 0 0.3em;
+  left: 78%;
+  bottom: 30%;
+  transition: all 0.3s ease;
 }
 
 .share-options .share-text {
@@ -139,45 +145,62 @@ button {
 
 .triangle {
   color: hsl(217, 19%, 35%);
-  border-top: 2vh solid hsl(217, 19%, 35%);
-  border-left: 1vw solid transparent;
-  border-right: 1vw solid transparent;
+  border-top: 1em solid hsl(217, 19%, 35%);
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;
 
+  display: block;
   position: absolute;
-  top: 56%;
-  right: 28.5%;
+  bottom: -0.8em;
+  left: 45%;
 }
 
 .pop-up {
   display: none;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 12.5px;
+  }
+
   .card {
     grid-template-columns: 1fr;
-    /* grid-template-rows: auto 4fr; */
-    /* max-width: 30rem; */
   }
 
   .img img {
+    border-radius: 1rem 1rem 0 0;
     width: 100%;
-    height: 17em;
+    max-height: 17em;
     object-position: top;
   }
-  .share-options {
-    padding: 1em 10em 1em 2em;
-    border-radius: 0 0 1em 1em;
-    overflow: hidden;
-    flex-direction: row;
-    top: -15%;
-    right: -9%;
-  }
 
-  .footer,
-  .share-button {
-    position: relative;
+  .share-options {
+    border-radius: 0 0 1rem 1rem;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4.5em;
+  }
+  .triangle {
+    display: none;
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 425px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 10.5px;
+  }
 }
